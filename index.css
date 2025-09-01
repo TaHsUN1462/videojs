@@ -1,0 +1,115 @@
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  transition: 200ms ease all;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100dvh;
+} */
+.video{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid #000;
+  width: 300px;
+  height: 200px;
+}
+.video video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.video *{
+  position: absolute;
+  transition: ease 200ms all;
+  font-family: Sans-Serif;
+}
+.video .playBtn{
+  z-index: 2;
+  background: rgba(255, 255, 255, .5);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+}
+.video .playBtn svg:last-child, .video .playBtn.playing svg:first-child{
+  transform: rotate(540deg) scale(0);
+}
+.video .playBtn svg:first-child, .video .playBtn.playing svg:last-child{
+  transform: rotate(360deg) scale(1);
+}
+.video .playBtn svg:last-child{
+  font-size: 1.5rem;
+}
+.video .playBtn.playing{
+  opacity: 0;
+}
+.video:has(.playBtn.playing):hover .playBtn{
+  opacity: 1;
+}
+.video .controls{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  /* border: 1px solid #000; */
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 90%);
+}
+.video:hover .controls{
+  opacity: 1;
+  pointer-events: auto;
+  color: white;
+}
+.video .controls input{
+  left: 0;
+  right: 0;
+  bottom: 0;
+  accent-color: red;
+}
+.video .controls .btnWrapper{
+  right: 0;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.video .controls .btnWrapper button{
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  background: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+}
+.video .controls .btnWrapper .mute svg:last-child, .video .controls .btnWrapper .mute.muted svg:first-child{
+  transform: rotate(540deg) scale(0);
+}
+.video .controls .btnWrapper .mute svg:first-child, .video .controls .btnWrapper .mute.muted svg:last-child{
+  transform: rotate(360deg) scale(1);
+}
+.video .controls .btnWrapper .mute svg{
+  position: absolute;
+}
+.video .controls .btnWrapper *{
+  position: relative;
+}
