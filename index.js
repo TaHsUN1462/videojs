@@ -9,7 +9,6 @@ __videos__.forEach((item) => {
   `
   let controls = document.createElement("div");
   controls.className = "controls";
-  count++;
   let span = document.createElement("span");
   controls.appendChild(span)
   let range = document.createElement("input");
@@ -77,6 +76,13 @@ function __status__(){
     range.value = video.currentTime
     span.innerText = `${Math.floor(range.value / 60).toString().padStart(2, "0")}:${String(range.value % 60).padStart(2, "0")}/${Math.floor(video.duration / 60).toString().padStart(2, "0")}:${String(Math.floor(video.duration % 60)).padStart(2, "0")}`
   });
-  requestAnimationFrame(status)
+  requestAnimationFrame(__status__)
 }
 __status__()
+
+fetch('https://github.com/TaHsUN1462/videojs/blob/main/index.css')
+  .then(res => res.json())
+  .then(data => {
+    
+  })
+  .catch(err => console.error(err));
